@@ -1,5 +1,5 @@
 {
-  "name": "day-02-Sharrel-Laure",
+  "name": "day-02-exercises",
   "version": "1.0.0",
   "description": "Day 2 - raw HTTP server exercises (no Express yet)",
   "main": "server.js",
