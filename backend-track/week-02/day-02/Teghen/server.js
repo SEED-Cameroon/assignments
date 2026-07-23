@@ -12,9 +12,7 @@
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
-// TODO Step 5: const os = require("os");
-
-// path.join("data", "students.json");
+const os = require("os");
 
 
 const PORT = 3000;
