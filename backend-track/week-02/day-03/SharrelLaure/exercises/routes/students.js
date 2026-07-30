@@ -78,7 +78,7 @@ router.put("/:id", validateStudent, (req, res) => {
   res.status(200).json(student);
 });
 // Find the student by req.params.id (404 if missing, same as Step 2). If found,
-// overwrite its name/score from req.body and respond 200 with the updated student.
+// overwrite its name/scnore from req.body and respond 200 with the updated student.
 
 // ----- TODO Step 4: DELETE /students/:id — remove -----
 router.delete("/:id", (req, res) => {
