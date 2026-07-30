@@ -30,21 +30,14 @@ router.get("/", (req, res) => {
 // ----- TODO Step 2: GET /students/:id — one student -----
 // Use req.params.id (it arrives as a STRING — Number() it before comparing).
 router.get("/:id", (req, res) => {
-  const ID = parseInt(req.params.id);
+  let ID = Number(req.params.id);
   console.log(ID)
   let results = students;
-  if (ID !== undefined) {
-    res.statusCode=200;
-    res.json(results.filter((student) => student.id === ID))
-    // for (student of results) {
-    //   if (student.id === ID) {
-    //     res.statusCode=200;
-    //     res.json({ student })
-    //   } else{
-    //     res.statusCode=404;
-    //     res.send(`{ error: "Student not found"}`)
-    //   }
-    // } 
+  let student = res.json(results.find((student) => student.id === ID))
+  if (student !== undefined) {
+    res.status(200).json({student})
+  } else{
+    res.status(404).json('{error: Student not found}')
   }
 });
 // Found -> 200 with the student. Not found -> 404 with { error: "Student not found" }.
@@ -59,14 +52,17 @@ router.post("/", (req, res) => {
 
 // ----- TODO Step 3: PUT /students/:id — update -----
 // Find the student by req.params.id (404 if missing, same as Step 2). If found,
-router.get("/:id", (req, res) => {
-  let ID = Number(req.params.id);
-  console.log(ID)
-  let results = students;
-  if (ID !== undefined) {
-    res.status(200).json(results.filter((student) => student.id === ID))
-  }
-});
+// router.put("/:id", (req, res) => {
+//   let ID = Number(req.params.id);
+//   console.log(ID)
+//   let results = students;
+//   let student = res.json(results.find((student) => student.id === ID))
+//   if (student !== undefined) {
+//     res.status(200).json({student})
+//   } else{
+//     res.status(404).json('{error: Student not found}')
+//   }
+// });
 // overwrite its name/score from req.body and respond 200 with the updated student.
 
 // ----- TODO Step 4: DELETE /students/:id — remove -----
@@ -79,6 +75,6 @@ router.get("/:id", (req, res) => {
 // non-empty string and req.body.score is a number — respond 400 with a clear error
 // message if not, otherwise call next(). Apply it to BOTH this file's POST route
 // and the PUT route you wrote in Step 3, e.g.:
-//   router.post("/", validateStudent, (req, res) => { ... });
+//   router.post(" /", validateStudent, (req, res) => { ... });
 
 module.exports = router;
