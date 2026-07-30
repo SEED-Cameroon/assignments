@@ -61,7 +61,7 @@ export async function updateStudent(req, res, next) {
 
 // ----- TODO Step 4: deleteStudent -----
 // Student.findByIdAndDelete(req.params.id). Not found -> same 404 pattern. Found ->
-// res.status(204).end() — no body, no .json() call.
+///res.status(204).end() — no body, no .json() call.
 export async function deleteStudent(req, res, next) {
     try {
     const student = await student.findByIdAndDelete(req.params.id);
