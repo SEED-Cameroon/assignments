@@ -51,6 +51,8 @@ app.use((err, req, res, next) => {
   res.status(err.statusCode || 500).json({ error: err.message || "Something went wrong" });
 });
 
+export default app;
+
 async function start() {
   await connectDB();
   app.listen(PORT, () => {
@@ -58,4 +60,6 @@ async function start() {
   });
 }
 
-start();
+if (process.env.NODE_ENV !== "test") {
+  start();
+}

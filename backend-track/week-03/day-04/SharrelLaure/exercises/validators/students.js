@@ -41,8 +41,6 @@ export function handleValidationErrors(req, res, next) {
   const err = new Error(errors.array()[0].msg);
   err.statusCode = 400;
   next(err);
-  if (err.name === "CastError") {
-  return res.status(400).json({ error: "Invalid student id" });
-};
+                                                                                                                                                                                                                                                                                                                                           
 };
 
