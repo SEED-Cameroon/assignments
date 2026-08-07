@@ -18,19 +18,15 @@ const students = [
 ];
 
 function average(students) {
-    const scores = students.map(s => s.score);
-    console.log(scores);
-    const total = scores.reduce((sum, score) => sum + score, 0);
-    console.log(total);
-    return total / scores.length;
-    
+  const scores = students.map((s) => s.score);
+  const total = scores.reduce((sum, score) => sum + score, 0);
+  return total / scores.length;
 }
-console.log (average(students));
 
 function aboveAverage(students) {
-  const avg = average(students);
- const above = students.filter((s) => s.score > avg);
- return above;
+  // TODO: your code here
+  const avg = average(students)
+  return students.filter((student) => student.score > avg)
 }
 
 console.log("Above average:", aboveAverage(students));

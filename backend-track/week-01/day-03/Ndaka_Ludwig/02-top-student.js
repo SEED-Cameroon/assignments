@@ -17,14 +17,11 @@ const students = [
 ];
 
 function topStudent(students) {
-  if (students == 0) return 'no students';
-  let top = students[0];
-  for (let i = 0; i < students.length; i++) {
-    if (students[i].score > top.score) {
-      top = students[i];
-    }
-  }
-  return top;
-}
 
-console.log("Top student:", topStudent(students));
+  // TODO: your code here
+  students.sort((a, b) => b.score - a.score)
+  return students[0]
+}
+console.log("Top student:", topStudent(students))
+
+
